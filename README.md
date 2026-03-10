@@ -1,2 +1,2 @@
 # sensibilidad-pro-ff
-Sensibilidad y rutinas para mejorar en ff
+Sensibilidades para un mejor rendimiento en tus partidas 
