@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sensibilidad Pro FF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #05060a;
+      color: #f5f5f5;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(5, 6, 10, 0.95);
+      border-bottom: 1px solid #222;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ff4b7b;
+    }
+    nav a {
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
+      text-decoration: none;
+    }
+    nav a:hover { color: #ff4b7b; }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: radial-gradient(circle at top left, #181b2a, #05060a 55%);
+      border: 1px solid #26293a;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #ff4b7b;
+    }
+    p { margin-bottom: 0.6rem; color: #d0d0d0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+      color: #b0b0b0;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 8px;
+      border: 1px solid #33384a;
+      background: #0b0d14;
+      color: #f5f5f5;
+      font-size: 0.9rem;
+    }
+    textarea { min-height: 80px; resize: vertical; }
+
+    button {
+      margin-top: 0.8rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ff4b7b, #ff9f4b);
+      color: #05060a;
+    }
+    button.secondary {
+      background: transparent;
+      border: 1px solid #444a5f;
+      color: #e0e0e0;
+      margin-left: 0.5rem;
+    }
+    button:hover { filter: brightness(1.05); }
+
+    .card {
+      border-radius: 10px;
+      border: 1px solid #33384a;
+      padding: 0.8rem 0.9rem;
+      background: rgba(5, 6, 10, 0.7);
+      font-size: 0.9rem;
+      margin-top: 0.7rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid #444a5f;
+      color: #aeb4ff;
+      margin-bottom: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #222;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+      nav a { margin-left: 0; margin-right: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sensibilidad Pro FF</h1>
+    <nav>
+      <a href="#config">Configurador</a>
+      <a href="#practica">Práctica</a>
+      <a href="#test">Test</a>
+      <a href="#historial">Historial</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section>
+      <span class="tag">Coach de sensibilidad</span>
+      <h2>Encuentra tu mejor sensibilidad con práctica real</h2>
+      <p>
+        Esta herramienta no modifica Free Fire. Te da recomendaciones y rutinas
+        para que entrenes dentro del juego y encuentres tu propia sensibilidad
+        ideal según tu dispositivo y estilo de juego.
+      </p>
+    </section>
+
+    <!-- Configurador -->
+    <section id="config">
+      <h2>Configurador de sensibilidad</h2>
+      <p>Completa los datos y genera una sensibilidad base para empezar a entrenar.</p>
+
+      <div class="grid">
+        <div>
+          <label for="modelo">Modelo de teléfono</label>
+          <input id="modelo" type="text" placeholder="Ej: Samsung A12, iPhone 11" />
+
+          <label for="pantalla">Tamaño de pantalla (pulgadas aprox.)</label>
+          <input id="pantalla" type="number" step="0.1" placeholder="Ej: 6.5" />
+
+          <label for="dpi">DPI del sistema (opcional)</label>
+          <input id="dpi" type="number" placeholder="Ej: 400, 600" />
+        </div>
+
+        <div>
+          <label for="estilo">Estilo de juego</label>
+          <select id="estilo">
+            <option value="rusher">Rusher (agresivo, corta distancia)</option>
+            <option value="equilibrado" selected>Equilibrado</option>
+            <option value="preciso">Preciso en mira (media/larga)</option>
+          </select>
+
+          <label for="sens-actual">Sensibilidad actual (si la recuerdas)</label>
+          <textarea id="sens-actual" placeholder="General, mira punto rojo, 2x, 4x, AWM, etc."></textarea>
+        </div>
+      </div>
+
+      <button id="btn-generar">Generar sensibilidad sugerida</button>
+
+      <div id="resultado-config" class="card" style="display:none;"></div>
+    </section>
+
+    <!-- Práctica -->
+    <section id="practica">
+      <h2>Modo práctica</h2>
+      <p>
+        Usa estas rutinas dentro de Free Fire. La idea es repetirlas varios días
+        con la misma sensibilidad para ver si te sientes más cómodo y preciso.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <strong>Ejercicio 1: Control de retroceso</strong>
+          <p>
+            Entra en entrenamiento, elige un arma con buen retroceso (ej. AK) y
+            dispara ráfagas largas apuntando a una pared. Intenta que las balas
+            queden lo más agrupadas posible, corrigiendo con el dedo hacia abajo.
+          </p>
+        </div>
+        <div class="card">
+          <strong>Ejercicio 2: Levantar mira</strong>
+          <p>
+            Practica levantar la mira desde el pecho hacia la cabeza con un solo
+            movimiento suave. Si te pasas mucho, tu sensibilidad puede estar muy alta;
+            si casi no sube, puede estar muy baja.
+          </p>
+        </div>
+        <div class="card">
+          <strong>Ejercicio 3: Seguimiento</strong>
+          <p>
+            Pídele a un amigo que se mueva lateralmente en entrenamiento y trata de
+            seguirlo con la mira sin perderlo. Si tiemblas mucho, baja un poco la
+            sensibilidad general.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test -->
+    <section id="test">
+      <h2>Test rápido de sensibilidad</h2>
+      <p>
+        Responde estas preguntas según cómo te sientes jugando con tu sensibilidad
+
+      <div class="grid">
+        <div>
+          <label for="p1">¿Sientes que te pasas mucho al apuntar a la cabeza?</label>
+          <select id="p1">
+            <option value="no">No, casi nunca</option>
+            <option value="a-veces">A veces</option>
+            <option value="si">Sí, muy seguido</option>
+          </select>
+
+          <label for="p2">¿Te cuesta girar rápido cuando te disparan por la espalda?</label>
+          <select id="p2">
+            <option value="no">No, giro bien</option>
+            <option value="a-veces">A veces</option>
+            <option value="si">Sí, me cuesta bastante</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="p3">¿Tu mira tiembla mucho al seguir a un enemigo?</label>
+          <select id="p3">
+            <option value="no">No, casi nada</option>
+            <option value="a-veces">A veces</option>
+            <option value="si">Sí, bastante</option>
+          </select>
+
+          <label for="p4">¿Te cuesta levantar la mira a la cabeza?</label>
+          <select id="p4">
+            <option value="no">No, lo hago fácil</option>
+            <option value="a-veces">A veces</option>
+            <option value="si">Sí, me cuesta</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="btn-test">Analizar respuestas</button>
+      <div id="resultado-test" class="card" style="display:none;"></div>
+    </section>
+
+    <!-- Historial -->
+    <section id="historial">
+      <h2>Historial y notas</h2>
+      <p>
+        Guarda tus sensibilidades y notas para ver cómo vas mejorando con el tiempo.
+        Se guarda solo en tu navegador.
+      </p>
+
+      <label for="nota">Anota tu sensibilidad actual y cómo te sentiste hoy:</label>
+      <textarea id="nota" placeholder="Ej: General 90, mira roja 95... Hoy me sentí más cómodo levantando mira."></textarea>
+      <button id="btn-guardar">Guardar en historial</button>
+      <button id="btn-limpiar" class="secondary">Borrar historial</button>
+
+      <div id="lista-historial" class="card" style="display:none; margin-top:1rem;"></div>
+    </section>
+  </main>
+
+  <footer>
+    Sensibilidad Pro FF · Proyecto conceptual · Entrena, no hagas trampas.
+  </footer>
+
+  <script>
+    // Configurador de sensibilidad (lógica simple de ejemplo)
+    const btnGenerar = document.getElementById("btn-generar");
+    const resultadoConfig = document.getElementById("resultado-config");
+
+    btnGenerar.addEventListener("click", () => {
+      const pantalla = parseFloat(document.getElementById("pantalla").value) || 6.0;
+      const dpi = parseInt(document.getElementById("dpi").value) || 400;
+      const estilo = document.getElementById("estilo").value;
+
+      // Lógica muy básica solo para ejemplo
+      let baseGeneral = 85;
+      if (pantalla > 6.5) baseGeneral -= 5;
+      if (dpi > 500) baseGeneral -= 5;
+
+      if (estilo === "rusher") baseGeneral += 5;
+      if (estilo === "preciso") baseGeneral -= 5;
+
+      const general = Math.max(60, Math.min(100, baseGeneral));
+      const miraRoja = Math.min(100, general + 5);
+      const mira2x = general - 3;
+      const mira4x = general - 8;
+      const awm = general - 12;
+
+      resultadoConfig.style.display = "block";
+      resultadoConfig.innerHTML = `
+        <strong>Sensibilidad sugerida para empezar a probar:</strong><br><br>
+        • General: <b>${general}</b><br>
+        • Mira punto rojo: <b>${miraRoja}</b><br>
+        • Mira 2x: <b>${mira2x}</b><br>
+        • Mira 4x: <b>${mira4x}</b><br>
+        • AWM: <b>${awm}</b><br><br>
+        <small>
+          Úsala varios días con las rutinas de práctica. Si te pasas mucho al apuntar,
+          baja 2–3 puntos; si te quedas corto, súbelos.
+        </small>
+      `;
+    });
+
+    // Test de sensibilidad
+    const btnTest = document.getElementById("btn-test");
+    const resultadoTest = document.getElementById("resultado-test");
+
+    btnTest.addEventListener("click", () => {
+      const p1 = document.getElementById("p1").value;
+      const p2 = document.getElementById("p2").value;
+      const p3 = document.getElementById("p3").value;
+      const p4 = document.getElementById("p4").value;
+
+      let recomendaciones = [];
+
+      if (p1 === "si" || p3 === "si") {
+        recomendaciones.push("Parece que tu sensibilidad general está algo alta. Prueba bajarla 2–4 puntos.");
+      }
+      if (p2 === "si") {
+        recomendaciones.push("Te cuesta girar rápido: considera subir un poco la sensibilidad general (2–3 puntos).");
+      }
+      if (p4 === "si") {
+        recomendaciones.push("Si te cuesta levantar mira, sube ligeramente la mira de punto rojo (2–3 puntos).");
+      }
+      if (recomendaciones.length === 0) {
+        recomendaciones.push("Tu sensibilidad parece bastante equilibrada. Enfócate en practicar las rutinas para pulir precisión.");
+      }
+
+      resultadoTest.style.display = "block";
+      resultadoTest.innerHTML = `
+        <strong>Análisis rápido:</strong><br><br>
+        ${recomendaciones.map(r => "• " + r).join("<br>")}
+      `;
+    });
+
+    // Historial (localStorage)
+    const btnGuardar = document.getElementById("btn-guardar");
+    const btnLimpiar = document.getElementById("btn-limpiar");
+    const listaHistorial = document.getElementById("lista-historial");
+    const nota = document.getElementById("nota");
+
+    function cargarHistorial() {
+      const data = JSON.parse(localStorage.getItem("historialSensFF") || "[]");
+      if (!data.length) {
+        listaHistorial.style.display = "none";
+        return;
+      }
+      listaHistorial.style.display = "block";
+      listaHistorial.innerHTML = "<strong>Entradas guardadas:</strong><br><br>" +
+        data.map(item => {
+          const fecha = new Date(item.fecha).toLocaleString();
+          return `<div style="margin-bottom:0.6rem;">
+            <b>${fecha}</b><br>${item.texto}
+          </div>`;
+        }).join("");
+    }
+
+    btnGuardar.addEventListener("click", () => {
+      const texto = nota.value.trim();
+      if (!texto) return;
+      const data = JSON.parse(localStorage.getItem("historialSensFF") || "[]");
+      data.unshift({ fecha: Date.now(), texto });
+      localStorage.setItem("historialSensFF", JSON.stringify(data));
+      nota.value = "";
+      cargarHistorial();
+    });
+
+    btnLimpiar.addEventListener("click", () => {
+      localStorage.removeItem("historialSensFF");
+      cargarHistorial();
+    });
+
+    cargarHistorial();
+  </script>
+</body>
+        </html>
